@@ -1,0 +1,22 @@
+{
+    "name": "devbera/module-cmslinktomenu",
+    "description": "",
+    "type": "magento2-module",
+    "license": "OSL-3.0",
+    "authors": [
+        {
+            "name": "Amit Bera",
+            "email": "dev.amitbera@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "DevBera\\CmsLinkToMenu\\": ""
+        }
+    }
+}
