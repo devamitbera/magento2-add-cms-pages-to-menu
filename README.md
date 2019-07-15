@@ -29,7 +29,7 @@ Ability add cms pages and it's sort Order from Admin System Configuration.
 ## Installation Process
 
 1. Download the extension .zip file from github https://github.com/devamitbera/magento2-add-cms-pages-to-menu.
-2. Copy the extension  to the `{magento2-root-dir}/app/code/DevBera/CmsLinkToMenu` OR Clone the files from github repo the files to `{magento2-root-dir}/app/code/DevBera/CmsLinkToMenu` using command `git clone https://github.com/devamitbera/magento2-add-cms-pages-to-menu.git`
+2. Copy the extension  to the `{magento2-root-dir}/app/code/DevBera/CmsLinkToMenu` OR Clone the files from github repo   to `{magento2-root-dir}/app/code/DevBera/CmsLinkToMenu` using command `git clone https://github.com/devamitbera/magento2-add-cms-pages-to-menu.git`
 3. Run the following series of command from SSH console of your server:
 `php bin/magento module:enable DevBera_CmsLinkToMenu  --clear-static-content`
 `php bin/magento setup:upgrade`
