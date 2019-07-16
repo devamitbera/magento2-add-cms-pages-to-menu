@@ -1,15 +1,21 @@
 {
     "name": "devbera/module-cmslinktomenu",
-    "description": "",
+    "description": "Magento2 add a cms page link to menu",
     "type": "magento2-module",
+    "keywords": ["Magento2 add a cms page link to menu"],
     "license": "OSL-3.0",
+    "version": "1.0.0",
     "authors": [
         {
             "name": "Amit Bera",
-            "email": "dev.amitbera@gmail.com"
+            "email": "dev.amitbera@gmail.com",
+            "homepage": "https://www.amitbera.com",
         }
     ],
-    "require": {},
+    "require": {
+        "php": ">=5.6.0"
+    },
+    "minimum-stability": "stable",
     "autoload": {
         "files": [
             "registration.php"
