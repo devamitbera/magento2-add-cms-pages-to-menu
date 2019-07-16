@@ -3,24 +3,22 @@
 /**
  * A Magento 2 module named DevBera/CmsLinkToMenu
  * Copyright (C) 2019 Copyright 2019 © amitbera.com. All Rights Reserved
- * 
+ *
  * This file included in DevBera/CmsLinkToMenu is licensed under OSL 3.0
- * 
+ *
  * http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  * Please see LICENSE.txt for the full text of the OSL 3.0 license
  */
 
 namespace DevBera\CmsLinkToMenu\Model\System\Config\Backend;
 
-
 use Magento\Store\Model\ScopeInterface;
 
-class FieldProcessor 
+class FieldProcessor
 {
 
     const XML_PATH_CMSLINKTOMENU_GENERAL_LEFT_PREFIX = 'cmslinktomenu/general/';
-    
-    
+     
     /**
      * @var \Magento\Framework\App\Config\ScopeConfigInterface
      */
@@ -39,7 +37,7 @@ class FieldProcessor
     public function __construct(
         \Magento\Framework\Serialize\Serializer\Json  $jsonSerializer,
         \Magento\Framework\Math\Random $mathRandom,
-        \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig  
+        \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig
     ) {
         
         $this->jsonSerializer = $jsonSerializer;
@@ -55,11 +53,11 @@ class FieldProcessor
             $options[$uniqueHashId] = ['page_id' => $pageIndetifier, 'position' => $position?$position:0];
         }
         return $options;
-    }   
+    }
     
     /**
      * Make field to array from Json
-     * 
+     *
      * @param string $value
      * @return array
      */
@@ -69,7 +67,7 @@ class FieldProcessor
             return $this->jsonSerializer->unserialize($value);
         } else {
             return [];
-        }       
+        }
     }
     
     /**
@@ -91,7 +89,7 @@ class FieldProcessor
             }
         }
         return true;
-    }  
+    }
 
     private function decodeArrayValue(array $value)
     {
@@ -102,11 +100,11 @@ class FieldProcessor
                || !array_key_exists('page_id', $row)
                || !array_key_exists('position', $row)
             ) {
-               continue;
+                continue;
             }
              
             $cmsPageIndifier = $row['page_id'];
-            $qty = !empty($row['position']) ? (float) $row['position'] : 0;           
+            $qty = !empty($row['position']) ? (float) $row['position'] : 0;
             $result[$cmsPageIndifier] = $qty;
         }
         return $result;
@@ -114,7 +112,7 @@ class FieldProcessor
     
     public function makeArrayFieldValue($value)
     {
-       $value = $this->unserializeFieldValue($value);
+        $value = $this->unserializeFieldValue($value);
 
         if (!$this->isArrayFieldHasEncodedValue($value)) {
             $value = $this->makeEncodeArrayField($value);
@@ -123,9 +121,9 @@ class FieldProcessor
     }
     public function buildStorableArrayFieldValue($value)
     {
-         if ($this->isArrayFieldHasEncodedValue($value)) {
-              $value = $this->decodeArrayFieldValue($value);
-         }
+        if ($this->isArrayFieldHasEncodedValue($value)) {
+             $value = $this->decodeArrayFieldValue($value);
+        }
         $value = $this->serializeValue($value);
         return $value;
     }
@@ -145,7 +143,7 @@ class FieldProcessor
             $result[$groupId] = $qty;
         }
         return $result;
-    } 
+    }
 
     private function serializeValue($value)
     {
@@ -169,18 +167,21 @@ class FieldProcessor
     
     /**
      * Get Field value as array
-     * 
+     *
      * @param string $fieldName
      * @param null|string|bool|int|\Magento\Store\Model\Store $store
      */
-    public function getConfigValue($fieldName= 'left_cms_pages',$store = null)
+    public function getConfigValue($fieldName = 'left_cms_pages', $store = null)
     {
-      $result = [];  
+        $result = [];
 
-      $value = $this->scopeConfig->getValue(self::XML_PATH_CMSLINKTOMENU_GENERAL_LEFT_PREFIX.$fieldName,
-              ScopeInterface::SCOPE_STORE,$store);
+        $value = $this->scopeConfig->getValue(
+            self::XML_PATH_CMSLINKTOMENU_GENERAL_LEFT_PREFIX.$fieldName,
+            ScopeInterface::SCOPE_STORE,
+            $store
+        );
      
-      $result =$this->unserializeFieldValue($value);
-     return $result; 
+        $result =$this->unserializeFieldValue($value);
+        return $result;
     }
 }

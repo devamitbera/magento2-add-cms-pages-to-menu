@@ -9,7 +9,6 @@
             "email": "dev.amitbera@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
     "require": {},
     "autoload": {
         "files": [
