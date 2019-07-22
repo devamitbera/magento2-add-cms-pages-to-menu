@@ -26,17 +26,30 @@ Ability add cms pages and it's sort Order from Admin System Configuration.
 ![Admin Setting](docs/static/enable%20Setting.png)
 
 
-## Installation Process
+## Installation Process using Zip
 
 1. Download the extension .zip file from github https://github.com/devamitbera/magento2-add-cms-pages-to-menu.
-2. Copy the extension  to the `{magento2-root-dir}/app/code/DevBera/CmsLinkToMenu` OR Clone the files from github repo   to `{magento2-root-dir}/app/code/DevBera/CmsLinkToMenu` using command 
+2. Copy the extension  to the `{magento2-root-dir}/app/code/DevBera/CmsLinkToMenu` 
+3. Run the following series of command from SSH console of your server to install  the extension
 
-`git clone https://github.com/devamitbera/magento2-add-cms-pages-to-menu.git {magento2-root-dir}/app/code/DevBera/CmsLinkToMenu -f`
+a)  Enable the extension : `php bin/magento module:enable DevBera_CmsLinkToMenu  --clear-static-content`
 
-3. Run the following series of command from SSH console of your server:
-`php bin/magento module:enable DevBera_CmsLinkToMenu  --clear-static-content`
-`php bin/magento setup:upgrade`
+b)  Run setup  Command `php bin/magento setup:upgrade`.
 
+c)  Run [setup di compile](https://devdocs.magento.com/guides/v2.3/config-guide/cli/config-cli-subcommands-compiler.html) `php bin/magento setup:di:comple`.
+
+D)  Do the static content deploy](https://devdocs.magento.com/guides/v2.3/config-guide/cli/config-cli-subcommands-static-view.html) `bin/magento setup:static-content:deploy`
+
+## Install using Composer
+
+
+**Run below command at your magento root directory to add my package using Composer:**
+
+`composer require devbera/module-cmslinktomenu`
+ 
+ Package will be  clone at **vendor/devbera/module-cmslinktomenu** at your
+ 
+ After that to install  this extension follow  steps1
 
 ## Standards & Code Quality
 
