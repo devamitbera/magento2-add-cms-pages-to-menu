@@ -8,7 +8,9 @@ Magento2 add a cms page link to menu
 
 This module is built by Amit Bera, [Magento StackExchange Moderator](https://magento.stackexchange.com/users/4564/amit-bera?tab=profile) & Magento Certified Developer & Consultant.
 
-@Contact Me https://www.amitbera.com/contact/
+@Contact from https://www.amitbera.com/contact/
+
+Or  Mail Me at dev.amitbera@gmail.com
 
 ## Feature of this extension
 
@@ -32,13 +34,13 @@ Ability add cms pages and it's sort Order from Admin System Configuration.
 2. Copy the extension  to the `{magento2-root-dir}/app/code/DevBera/CmsLinkToMenu` 
 3. Run the following series of command from SSH console of your server to install  the extension
 
-a)  Enable the extension : `php bin/magento module:enable DevBera_CmsLinkToMenu  --clear-static-content`
+#a)  Enable the extension : `php bin/magento module:enable DevBera_CmsLinkToMenu  --clear-static-content`
 
-b)  Run setup  Command `php bin/magento setup:upgrade`.
+#b)  Run setup  Command `php bin/magento setup:upgrade`.
 
-c)  Run [setup di compile](https://devdocs.magento.com/guides/v2.3/config-guide/cli/config-cli-subcommands-compiler.html) `php bin/magento setup:di:comple`.
+#c)  Run [setup di compile](https://devdocs.magento.com/guides/v2.3/config-guide/cli/config-cli-subcommands-compiler.html) `php bin/magento setup:di:comple`.
 
-D)  Do the static content deploy](https://devdocs.magento.com/guides/v2.3/config-guide/cli/config-cli-subcommands-static-view.html) `bin/magento setup:static-content:deploy`
+#d)  Do the [static content deploy](https://devdocs.magento.com/guides/v2.3/config-guide/cli/config-cli-subcommands-static-view.html) `bin/magento setup:static-content:deploy`
 
 ## Install using Composer
 
@@ -49,7 +51,17 @@ D)  Do the static content deploy](https://devdocs.magento.com/guides/v2.3/config
  
  Package will be  clone at **vendor/devbera/module-cmslinktomenu** at your
  
- After that to install  this extension follow  steps1
+ After cloning,you have to install this extension at your system by follow below steps:
+ 
+ 
+#a)  Enable the extension : `php bin/magento module:enable DevBera_CmsLinkToMenu  --clear-static-content`
+
+#b)  Run setup  Command `php bin/magento setup:upgrade`.
+
+#c)  Run [setup di compile](https://devdocs.magento.com/guides/v2.3/config-guide/cli/config-cli-subcommands-compiler.html) `php bin/magento setup:di:comple`.
+
+#d)  Do the [static content deploy](https://devdocs.magento.com/guides/v2.3/config-guide/cli/config-cli-subcommands-static-view.html) `bin/magento setup:static-content:deploy`
+ 
 
 ## Standards & Code Quality
 
