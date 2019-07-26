@@ -15,8 +15,15 @@ use Magento\Store\Model\ScopeInterface;
 
 class LeftTopmenu
 {
-    
+
+    /**
+     * @var \DevBera\CmsLinkToMenu\Model\StaticLinkers
+     */
+    private $staticLinkers;
+
     const CONFIG_IS_ENABLED = 'cmslinktomenu/general/enable';
+    
+     const CONFIG_IS_CUSTOM_LINKS_ENABLED = 'cmslinktomenu/custom_links/enable';
 
     /**
      * @var \DevBera\CmsLinkToMenu\Model
@@ -36,12 +43,14 @@ class LeftTopmenu
     public function __construct(
         \DevBera\CmsLinkToMenu\Model\AddItemtoMenu $cmsLinks,
         \Magento\Framework\App\Config\ScopeConfigInterface  $scopeConfig,
+        \DevBera\CmsLinkToMenu\Model\StaticLinkers $staticLinkers,
         \Psr\Log\LoggerInterface $logger
     ) {
         
         $this->logger = $logger;
         $this->cmsLinks = $cmsLinks;
         $this->scopeConfig = $scopeConfig;
+        $this->staticLinkers = $staticLinkers;
     }
 
     public function beforeGetHtml(
@@ -50,9 +59,20 @@ class LeftTopmenu
         $childrenWrapClass = '',
         $outermostClass = ''
     ) {
+        
+        $isAddCmsPageToMenuEnabled = $this->isAddCmsPageToMenuEnabled();
+        $isAddCustomLinkToMenuEnabled = $this->isAddCustomLinkToMenuEnabled();
+        
+        if ($isAddCmsPageToMenuEnabled || $isAddCustomLinkToMenuEnabled) {
+            
+            if ($isAddCmsPageToMenuEnabled) {
+                $this->cmsLinks->addCmsPagesToMenu($subject);
+            }
 
-        if ($this->isAddCmsPageToMenuEnabled()) {
-            $this->cmsLinks->addCmsPagesToMenu($subject);
+            if ($isAddCustomLinkToMenuEnabled) {
+                $this->staticLinkers->addCustomLinks($subject);
+            }
+            
             return [$limit, $childrenWrapClass, $outermostClass];
         }
     }
@@ -61,6 +81,13 @@ class LeftTopmenu
     {
         return $this->scopeConfig->getValue(
             self::CONFIG_IS_ENABLED,
+            ScopeInterface::SCOPE_STORE
+        );
+    }
+    private function isAddCustomLinkToMenuEnabled()
+    {
+        return $this->scopeConfig->getValue(
+            self::CONFIG_IS_CUSTOM_LINKS_ENABLED,
             ScopeInterface::SCOPE_STORE
         );
     }

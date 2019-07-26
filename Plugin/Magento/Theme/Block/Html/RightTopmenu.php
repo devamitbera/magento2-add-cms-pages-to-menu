@@ -15,6 +15,10 @@ use Magento\Store\Model\ScopeInterface;
 
 class RightTopmenu
 {
+    /**
+     * @var \DevBera\CmsLinkToMenu\Model\StaticLinkers
+     */
+    private $staticLinkers;
 
     /**
      * @var \DevBera\CmsLinkToMenu\Model
@@ -34,12 +38,14 @@ class RightTopmenu
     public function __construct(
         \DevBera\CmsLinkToMenu\Model\AddItemtoMenu $cmsLinks,
         \Magento\Framework\App\Config\ScopeConfigInterface  $scopeConfig,
+        \DevBera\CmsLinkToMenu\Model\StaticLinkers $staticLinkers,
         \Psr\Log\LoggerInterface $logger
     ) {
         
         $this->logger = $logger;
         $this->cmsLinks = $cmsLinks;
         $this->scopeConfig = $scopeConfig;
+        $this->staticLinkers = $staticLinkers;
     }
 
     public function beforeGetHtml(
@@ -48,8 +54,20 @@ class RightTopmenu
         $childrenWrapClass = '',
         $outermostClass = ''
     ) {
-        if ($this->isAddCmsPageToMenuEnabled()) {
-            $this->cmsLinks->addCmsPagesToMenu($subject, 'right');
+        
+        $isAddCmsPageToMenuEnabled = $this->isAddCmsPageToMenuEnabled();
+        $isAddCustomLinkToMenuEnabled = $this->isAddCustomLinkToMenuEnabled();
+        
+        if ($isAddCmsPageToMenuEnabled || $isAddCustomLinkToMenuEnabled) {
+            
+            if ($isAddCmsPageToMenuEnabled) {
+                $this->cmsLinks->addCmsPagesToMenu($subject, 'right');
+            }
+
+            if ($isAddCustomLinkToMenuEnabled) {
+                $this->staticLinkers->addCustomLinks($subject, 'right');
+            }
+            
             return [$limit, $childrenWrapClass, $outermostClass];
         }
     }
@@ -58,6 +76,13 @@ class RightTopmenu
     {
         return $this->scopeConfig->getValue(
             LeftTopmenu::CONFIG_IS_ENABLED,
+            ScopeInterface::SCOPE_STORE
+        );
+    }
+    private function isAddCustomLinkToMenuEnabled()
+    {
+        return $this->scopeConfig->getValue(
+            LeftTopmenu::CONFIG_IS_CUSTOM_LINKS_ENABLED,
             ScopeInterface::SCOPE_STORE
         );
     }

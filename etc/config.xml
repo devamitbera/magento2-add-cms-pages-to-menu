@@ -1,10 +1,13 @@
 <?xml version="1.0" ?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
     <default>
-        <web>
-            <cmslinktomenu>
-                <pages/>
-            </cmslinktomenu>
-        </web>
+        <cmslinktomenu>
+            <general>
+                <enable>0</enable>
+            </general>
+            <custom_links>
+                <enable>1</enable>
+            </custom_links>                
+        </cmslinktomenu>
     </default>
 </config>
