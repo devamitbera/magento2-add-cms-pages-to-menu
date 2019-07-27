@@ -16,7 +16,9 @@ Or  Mail Me at dev.amitbera@gmail.com
 
 
 
-### Add cms page to Magento default menu at left and right section
+### 1. Ability to add cms page to Magento default menu at left and right end.
+
+### 2. Ability to add Custom links to Magento default menu at left and right end.
 
 
 ![Menu](docs/static/frontend-enabled.png)
