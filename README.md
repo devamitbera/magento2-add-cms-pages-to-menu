@@ -28,7 +28,7 @@ Or  Mail Me at dev.amitbera@gmail.com
 
  - **Ability add cms pages and it's sort Order from Admin System Configuration.**
 
-![Admin Setting](docs/static/enable%20Setting.png)
+![Admin Setting](docs/static/CMS-Page.png)
 
  - **Add Your Custom /Static links from Admin Setting area.**
  
