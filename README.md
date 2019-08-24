@@ -20,14 +20,20 @@ Or  Mail Me at dev.amitbera@gmail.com
 
 ### 2. Ability to add Custom links to Magento default menu at left and right end.
 
+# Frontend View
 
-![Menu](docs/static/frontend-enabled.png)
+![Menu](docs/static/frontend.png)
 
-**Manage Pages section and Sort Order from admin Configuration.**
+# Admin Setting :Manage Pages/Custom links from admin and also Sort Order
 
-Ability add cms pages and it's sort Order from Admin System Configuration.
+ - **Ability to add cms pages and it's sort Order from Admin System Configuration.**
 
-![Admin Setting](docs/static/enable%20Setting.png)
+![Admin Setting](docs/static/CMS-Page.png)
+
+ - **Add Your Custom /Static links from Admin Setting area.**
+ 
+ ![Admin Setting](docs/static/Custom_links.png)
+ 
 
 
 ## Installation Process using Zip
