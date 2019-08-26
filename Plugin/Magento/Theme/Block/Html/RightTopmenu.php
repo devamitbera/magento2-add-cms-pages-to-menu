@@ -15,15 +15,14 @@ use Magento\Store\Model\ScopeInterface;
 
 class RightTopmenu
 {
-    /**
-     * @var \DevBera\CmsLinkToMenu\Model\StaticLinkers
-     */
-    private $staticLinkers;
+
+    const XMLPATH_CONFIG_IS_ENABLED = 'cmslinktomenu/cms_custom_links/enable';
 
     /**
-     * @var \DevBera\CmsLinkToMenu\Model
+     * @var \DevBera\CmsLinkToMenu\Api\MenuLinkManagementInterface
      */
-    private $cmsLinks;
+    private $menuLinkManagement;
+    
 
     /**
      * @var \Psr\Log\LoggerInterface
@@ -34,18 +33,16 @@ class RightTopmenu
      * @var \Magento\Framework\App\Config\ScopeConfigInterface
      */
     private $scopeConfig;
-
+    
     public function __construct(
-        \DevBera\CmsLinkToMenu\Model\AddItemtoMenu $cmsLinks,
         \Magento\Framework\App\Config\ScopeConfigInterface  $scopeConfig,
-        \DevBera\CmsLinkToMenu\Model\StaticLinkers $staticLinkers,
+        \DevBera\CmsLinkToMenu\Api\MenuLinkManagementInterface $menuLinkManagement, 
         \Psr\Log\LoggerInterface $logger
     ) {
         
         $this->logger = $logger;
-        $this->cmsLinks = $cmsLinks;
         $this->scopeConfig = $scopeConfig;
-        $this->staticLinkers = $staticLinkers;
+        $this->menuLinkManagement = $menuLinkManagement;
     }
 
     public function beforeGetHtml(
@@ -55,34 +52,16 @@ class RightTopmenu
         $outermostClass = ''
     ) {
         
-        $isAddCmsPageToMenuEnabled = $this->isAddCmsPageToMenuEnabled();
-        $isAddCustomLinkToMenuEnabled = $this->isAddCustomLinkToMenuEnabled();
-        
-        if ($isAddCmsPageToMenuEnabled || $isAddCustomLinkToMenuEnabled) {
-            
-            if ($isAddCmsPageToMenuEnabled) {
-                $this->cmsLinks->addCmsPagesToMenu($subject, 'right');
-            }
-
-            if ($isAddCustomLinkToMenuEnabled) {
-                $this->staticLinkers->addCustomLinks($subject, 'right');
-            }
-            
+        if ($this->isEnabled()) {
+            $this->menuLinkManagement->addLinks($subject, 'right');  
             return [$limit, $childrenWrapClass, $outermostClass];
         }
     }
     
-    private function isAddCmsPageToMenuEnabled()
+    private function isEnabled()
     {
         return $this->scopeConfig->getValue(
-            LeftTopmenu::CONFIG_IS_ENABLED,
-            ScopeInterface::SCOPE_STORE
-        );
-    }
-    private function isAddCustomLinkToMenuEnabled()
-    {
-        return $this->scopeConfig->getValue(
-            LeftTopmenu::CONFIG_IS_CUSTOM_LINKS_ENABLED,
+            self::XMLPATH_CONFIG_IS_ENABLED,
             ScopeInterface::SCOPE_STORE
         );
     }

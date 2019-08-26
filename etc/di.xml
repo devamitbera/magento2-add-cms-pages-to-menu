@@ -1,14 +1,17 @@
 <?xml version="1.0" ?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
-	<type name="Magento\Theme\Block\Html\Topmenu">
-                <!-- Sort Order = -10 use for run default Menu -->
-		<plugin disabled="false" 
+    <preference for="DevBera\CmsLinkToMenu\Api\MenuLinkManagementInterface" 
+                type="DevBera\CmsLinkToMenu\Model\MenuLinkManagement" />
+
+    <type name="Magento\Theme\Block\Html\Topmenu">
+        <!-- Sort Order = -10 use for run default Menu -->
+        <plugin disabled="false" 
                         name="DevBera_CmsLinkToMenu_Plugin_Magento_Theme_Block_Html_LeftTopmenu" 
                         sortOrder="-10" type="DevBera\CmsLinkToMenu\Plugin\Magento\Theme\Block\Html\LeftTopmenu"/>
                 
-		<plugin disabled="false" 
+        <plugin disabled="false" 
                         name="DevBera_CmsLinkToMenu_Plugin_Magento_Theme_Block_Html_RightTopmenu" 
                         sortOrder="10" type="DevBera\CmsLinkToMenu\Plugin\Magento\Theme\Block\Html\RightTopmenu"/>                
-	</type>
+    </type>
         
 </config>
