@@ -5,42 +5,24 @@
             <label>CMS Page to menu</label>
             <tab>general</tab>
             <resource>DevBera_CmsLinkToMenu::config_devbera_cmslinktomenu</resource>
-            <group id="general" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
-                <label>CMS Page Links</label>
-                <field id="enable" translate="label" type="select" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="10" canRestore="1" >
-                    <label>Enabled</label>
-                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
-                </field>                
-                <field id="left_cms_pages" translate="label" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
-                    <label>Select Cms Pages for Menu left End</label>
-                    <frontend_model>DevBera\CmsLinkToMenu\Block\Adminhtml\Form\Field\CmsPagesList</frontend_model>
-                    <backend_model>DevBera\CmsLinkToMenu\Model\System\Config\Backend\CmsPagesList</backend_model>
-                </field>
-                <field id="right_cms_pages" translate="label" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
-                    <label>Select Cms Pages for Menu Right End</label>
-                    <frontend_model>DevBera\CmsLinkToMenu\Block\Adminhtml\Form\Field\CmsPagesList</frontend_model>
-                    <backend_model>DevBera\CmsLinkToMenu\Model\System\Config\Backend\CmsPagesList</backend_model>
-                </field>   
-            </group>
-            
-            <group id="custom_links" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20" translate="label">
-                <label>Custom /Static Links To Menu</label>
+            <group id="cms_custom_links" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="30" translate="label">
+                <label>Cms / Custom /Static Links To Menu</label>
                 <field id="enable" translate="label" type="select" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="10" canRestore="1" >
                     <label>Enabled</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>                
                 <field id="left" translate="label" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
-                    <label>Custom/Static Links For menu Left Hand</label>
-                    <frontend_model>DevBera\CmsLinkToMenu\Block\Adminhtml\Form\Field\StaticLinks</frontend_model>
-                    <backend_model>DevBera\CmsLinkToMenu\Model\System\Config\Backend\CustomLinks</backend_model>
+                    <label>Custom/Static Links For Left Left Hand</label>
+                    <frontend_model>DevBera\CmsLinkToMenu\Block\Adminhtml\Form\Field\CmsPageCustomLinker</frontend_model>
+                    <backend_model>DevBera\CmsLinkToMenu\Model\System\Config\Backend\CmsPageCustomLinker</backend_model>
                 </field>  
-                
-                <field id="right" translate="label" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
-                    <label>Custom/Static Links for menu Right End</label>
-                    <frontend_model>DevBera\CmsLinkToMenu\Block\Adminhtml\Form\Field\StaticLinks</frontend_model>
-                    <backend_model>DevBera\CmsLinkToMenu\Model\System\Config\Backend\CustomLinks</backend_model>
-                </field>                                                              
-            </group>           
+                 <field id="right" translate="label" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Custom/Static Links For Right Hand Section</label>
+                    <frontend_model>DevBera\CmsLinkToMenu\Block\Adminhtml\Form\Field\CmsPageCustomLinker</frontend_model>
+                    <backend_model>DevBera\CmsLinkToMenu\Model\System\Config\Backend\CmsPageCustomLinker</backend_model>
+                </field>                
+            </group> 
+                                           
         </section>
     </system>
 </config>

@@ -17,6 +17,7 @@ class StaticLinks extends AbstractFieldArray
 {
     protected function _prepareToRender(): void
     {
+
         $this->addColumn('link_text', ['label' => __('Text')]);
         $this->addColumn('link_url', ['label' => __('Url')]);
         $this->addColumn('position', ['label' => __('Sort Order')]);
