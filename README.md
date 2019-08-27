@@ -8,33 +8,20 @@ Magento2 add a cms page link to menu and add a Custom page link to menu
 Built by Amit Bera, [Magento StackExchange Moderator](https://magento.stackexchange.com/users/4564/amit-bera?tab=profile) & Magento Certified Developer & Consultant.
 # Contact at
 
-- @webisie https://www.amitbera.com/contact/
+- @website https://www.amitbera.com/contact/
 - @E-mail dev.amitbera@gmail.com
+- @Skype dev.amitbera
 
-# Version
- Current Version : **1.3.0**
-## Feature of this extension
+[![Latest Stable Version](https://poser.pugx.org/devbera/module-cmslinktomenu/v/stable)](https://packagist.org/packages/devbera/module-cmslinktomenu)
+[![Total Downloads](https://poser.pugx.org/devbera/module-cmslinktomenu/downloads)](https://packagist.org/packages/devbera/module-cmslinktomenu)
 
+# Version: 1.3.0
 
+ ## 1. Documentation
 
-### 1. Ability to add cms page to Magento default menu at left and right end.
-
-### 2. Ability to add Custom links to Magento default menu at left and right end.
-
-# Frontend View
-
-![Menu](docs/static/frontend.png)
-
-# Admin Setting :Manage Pages/Custom links from admin and also Sort Order
-
- - **Ability to add cms pages and it's sort Order from Admin System Configuration.**
-
-![Admin Setting](docs/static/CMS-Page.png)
-
- - **Add Your Custom /Static links from Admin Setting area.**
+**Comming Soon**
  
- ![Admin Setting](docs/static/Custom_links.png)
- 
+## 2. How to install Extension
 
 
 ## Installation Process using Zip
@@ -71,6 +58,34 @@ Built by Amit Bera, [Magento StackExchange Moderator](https://magento.stackexcha
 
 #d)  Do the [static content deploy](https://devdocs.magento.com/guides/v2.3/config-guide/cli/config-cli-subcommands-static-view.html) `bin/magento setup:static-content:deploy`
  
+## 3. Highlight features:
+
+
+
+### 1. Ability to add cms page to Magento default menu at left and right end.
+
+### 2. Ability to add Custom links to Magento default menu at left and right end.
+
+# Frontend View
+
+![Menu](docs/static/version-1-3-0-frontend.png)
+
+# Admin Setting : Add Cms Pages & static links from admin
+
+ - **Ability manahe sort Order from Admin System Configuration.**
+
+![Admin Setting](docs/static/version-1-3-0-admin-setting.png)
+
+## 4. Configure. 
+# Video Demo 
+ - Admin Setting Demo https://www.youtube.com/watch?v=jIWpNxtaPUw
+ - Frontend View Demo https://www.youtube.com/watch?v=sW7EJG2ld8k
+
+**Comming Soon**
+
+## 4. User Guide
+
+**Comming Soon**
 
 ## Standards & Code Quality
 
