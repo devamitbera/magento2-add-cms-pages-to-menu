@@ -18,40 +18,40 @@ class CmsPageCustomLinker extends \Magento\Framework\App\Config\Value
 {
     /**
      *
-     * @var Processor 
+     * @var Processor
      */
     private $processor;
     
     public function __construct(
-           \Magento\Framework\Model\Context $context,
-           \Magento\Framework\Registry $registry,
-           \Magento\Framework\App\Config\ScopeConfigInterface $config,
-           \Magento\Framework\App\Cache\TypeListInterface $cacheTypeList,
-           \Magento\Framework\Model\ResourceModel\AbstractResource $resource = null,
-           \Magento\Framework\Data\Collection\AbstractDb $resourceCollection = null,
-           Processor $processor,
-           array $data = []
+        \Magento\Framework\Model\Context $context,
+        \Magento\Framework\Registry $registry,
+        \Magento\Framework\App\Config\ScopeConfigInterface $config,
+        \Magento\Framework\App\Cache\TypeListInterface $cacheTypeList,
+        \Magento\Framework\Model\ResourceModel\AbstractResource $resource = null,
+        \Magento\Framework\Data\Collection\AbstractDb $resourceCollection = null,
+        Processor $processor,
+        array $data = []
     ) {
         
-      $this->processor = $processor;
-       parent::__construct(
-               $context,
-               $registry,
-               $config,
-               $cacheTypeList,
-               $resource,
-               $resourceCollection,
-               $data
-               );
-   }
+        $this->processor = $processor;
+        parent::__construct(
+            $context,
+            $registry,
+            $config,
+            $cacheTypeList,
+            $resource,
+            $resourceCollection,
+            $data
+        );
+    }
    
-   public function beforeSave()
-   {
+    public function beforeSave()
+    {
        
-      $value = $this->getValue();
-      $value = $this->processor->buildValueForSave($value);
-      $this->setValue($value);
-   }
+        $value = $this->getValue();
+        $value = $this->processor->buildValueForSave($value);
+        $this->setValue($value);
+    }
     /**
      * Convert value to Array format from Json type
      */
@@ -60,5 +60,5 @@ class CmsPageCustomLinker extends \Magento\Framework\App\Config\Value
         $value = $this->getValue();
         $value = $this->processor->convertFieldToArrayType($value);
         $this->setValue($value);
-    }   
+    }
 }

@@ -12,15 +12,14 @@
 
 namespace DevBera\CmsLinkToMenu\Model\Config\Source;
 
-
 class LinkTypes implements \Magento\Framework\Option\ArrayInterface
 {
 
     private $options;
     
-    public function toOptionArray(): array 
+    public function toOptionArray(): array
     {
-        if(!$this->options){
+        if (!$this->options) {
             $this->options[] = ['value' => 1,'label'=> __('Cms Page')];
             $this->options[] = ['value' => 2,'label'=> __('Custom Link /Static Link')];
         }

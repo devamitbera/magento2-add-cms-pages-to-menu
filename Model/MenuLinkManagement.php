@@ -12,7 +12,6 @@
 
 namespace DevBera\CmsLinkToMenu\Model;
 
-
 use Magento\Store\Model\ScopeInterface;
 
 use Magento\Framework\UrlInterface;
@@ -85,7 +84,7 @@ class MenuLinkManagement implements MenuLinkManagementInterface
         ScopeConfigInterface  $scopeConfig,
         SearchCriteriaBuilder $searchCriteriaBuilder,
         FilterBuilder $filterBuilder,
-        Processor  $processor,    
+        Processor  $processor,
         \Psr\Log\LoggerInterface $logger
     ) {
        
@@ -110,11 +109,12 @@ class MenuLinkManagement implements MenuLinkManagementInterface
         $menuItems = $this->getLinksWithSortOrder($fieldValue);
         
         if (!empty($menuItems) && is_array($menuItems)) {
-            $this->buildMenuItems($subject , $menuItems);
+            $this->buildMenuItems($subject, $menuItems);
         }
     }
     
-    private function getLinksWithSortOrder($fieldValue){
+    private function getLinksWithSortOrder($fieldValue)
+    {
         
         $result = $this->processor->getFieldValueInArrayType($fieldValue);
         
@@ -122,41 +122,42 @@ class MenuLinkManagement implements MenuLinkManagementInterface
             
             usort($result, function ($a, $b) {
                 return $a['position'] <=> $b['position'];
-            });            
+            });
             
             return  $result;
         }
         return false;
     }
     
-    private function buildMenuItems($subject, $menuItems) {
+    private function buildMenuItems($subject, $menuItems)
+    {
         
         $cmsPages = $this->getFindCmsPageList($menuItems);
 
         foreach ($menuItems as $menuItem) {
 
-            if($menuItem['link_type'] === 1 && (empty($cmsPages) || 
-                      !array_key_exists($menuItem['page_id'], $cmsPages)) 
-            ){
+            if ($menuItem['link_type'] === 1 && (empty($cmsPages) ||
+                      !array_key_exists($menuItem['page_id'], $cmsPages))
+            ) {
                 continue;
             }
             
             if ($menuItem['link_type'] === 1) {
 
                 $subject->getMenu()->addChild(
-                        $this->addCmsPageToMenu($subject, $menuItem, $cmsPages)
+                    $this->addCmsPageToMenu($subject, $menuItem, $cmsPages)
                 );
             }
             
             if ($menuItem['link_type'] === 2) {
                 $subject->getMenu()->addChild(
-                        $this->addStaticLinkToMenu($subject, $menuItem)
+                    $this->addStaticLinkToMenu($subject, $menuItem)
                 );
             }
         }
     }
 
-    private function addCmsPageToMenu($subject,$menuItem,$cmsPages)
+    private function addCmsPageToMenu($subject, $menuItem, $cmsPages)
     {
             
         $page = $cmsPages[$menuItem['page_id']];
@@ -168,16 +169,16 @@ class MenuLinkManagement implements MenuLinkManagementInterface
                     'id' => 'cms-page-'.$menuItem['position'].'-'.$page->getIdentifier(),
                     'url' => $this->getCmsPageUrl($page),
                     'has_active' => false,
-                    'is_active' => false 
+                    'is_active' => false
                 ],
                 'idField' => 'id',
                 'tree' => $subject->getMenu()->getTree()
             ]
         );
-        return $node;             
-    }        
+        return $node;
+    }
     
-    private function addStaticLinkToMenu($subject,$menuItem)
+    private function addStaticLinkToMenu($subject, $menuItem)
     {
         $node = $this->nodeFactory->create(
             [
@@ -192,7 +193,7 @@ class MenuLinkManagement implements MenuLinkManagementInterface
                 'tree' => $subject->getMenu()->getTree()
             ]
         );
-        return $node;     
+        return $node;
     }
     
     private function getFindCmsPageList($links)
@@ -201,8 +202,8 @@ class MenuLinkManagement implements MenuLinkManagementInterface
         $cmsPagesIdentifier = [];
         $result = [];
         
-        foreach($links as $link){
-            if($link['link_type'] == 1){
+        foreach ($links as $link) {
+            if ($link['link_type'] == 1) {
                 $cmsPagesIdentifier[] = $link['page_id'];
             }
         }
@@ -239,14 +240,13 @@ class MenuLinkManagement implements MenuLinkManagementInterface
                    $result[$page->getIdentifier()] =  $page;
             }
         }
-        return $result;        
+        return $result;
     }
-    
 
     private function getLinkUrl($data)
     {
         return $this->urlBuilder->getUrl(null, ['_direct' => $data['link_url']]);
-    }  
+    }
     /**
      *
      * @return string
@@ -261,13 +261,12 @@ class MenuLinkManagement implements MenuLinkManagementInterface
             );
         }
         return $this->homePageIdentifier;
-    }  
-     private function getCmsPageUrl($page)
+    }
+    private function getCmsPageUrl($page)
     {
         if ($page->getIdentifier() == $this->getHomePageIdentifier()) {
             return $this->urlBuilder->getUrl();
         }
         return $this->urlBuilder->getUrl(null, ['_direct' => $page->getIdentifier()]);
     }
-     
 }

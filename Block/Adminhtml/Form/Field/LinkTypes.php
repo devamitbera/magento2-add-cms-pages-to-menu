@@ -12,7 +12,6 @@
 
 namespace DevBera\CmsLinkToMenu\Block\Adminhtml\Form\Field;
 
-
 class LinkTypes extends \Magento\Framework\View\Element\Html\Select
 {
 
@@ -47,5 +46,5 @@ class LinkTypes extends \Magento\Framework\View\Element\Html\Select
     public function setInputName($value)
     {
         return $this->setName($value);
-    }    
+    }
 }
