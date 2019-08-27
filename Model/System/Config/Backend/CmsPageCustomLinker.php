@@ -12,38 +12,53 @@
 
 namespace DevBera\CmsLinkToMenu\Model\System\Config\Backend;
 
-class CmsPagesList extends \Magento\Framework\App\Config\Value
+use DevBera\CmsLinkToMenu\Model\System\Config\Backend\CmsPageCustomLinker\Processor;
+
+class CmsPageCustomLinker extends \Magento\Framework\App\Config\Value
 {
-
     /**
-     * @var \DevBera\CmsLinkToMenu\Model\System\Config\Backend\FieldProcessor
+     *
+     * @var Processor
      */
-    private $fieldProcessor;
-
+    private $processor;
+    
     public function __construct(
         \Magento\Framework\Model\Context $context,
         \Magento\Framework\Registry $registry,
         \Magento\Framework\App\Config\ScopeConfigInterface $config,
         \Magento\Framework\App\Cache\TypeListInterface $cacheTypeList,
         \Magento\Framework\Model\ResourceModel\AbstractResource $resource = null,
-        \DevBera\CmsLinkToMenu\Model\System\Config\Backend\FieldProcessor $fieldProcessor,
         \Magento\Framework\Data\Collection\AbstractDb $resourceCollection = null,
+        Processor $processor,
         array $data = []
     ) {
-        $this->fieldProcessor = $fieldProcessor;
-        parent::__construct($context, $registry, $config, $cacheTypeList, $resource, $resourceCollection, $data);
+        
+        $this->processor = $processor;
+        parent::__construct(
+            $context,
+            $registry,
+            $config,
+            $cacheTypeList,
+            $resource,
+            $resourceCollection,
+            $data
+        );
     }
-    
+   
+    public function beforeSave()
+    {
+       
+        $value = $this->getValue();
+        $value = $this->processor->buildValueForSave($value);
+        $this->setValue($value);
+    }
+    /**
+     * Convert value to Array format from Json type
+     */
     protected function _afterLoad()
     {
         $value = $this->getValue();
-        $value = $this->fieldProcessor->makeArrayFieldValue($value);
-        $this->setValue($value);
-    }
-    public function beforeSave()
-    {
-        $value = $this->getValue();
-        $value = $this->fieldProcessor->buildStorableArrayFieldValue($value);
+        $value = $this->processor->convertFieldToArrayType($value);
         $this->setValue($value);
     }
 }

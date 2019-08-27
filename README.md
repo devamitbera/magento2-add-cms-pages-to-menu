@@ -5,13 +5,14 @@ Magento2 add a cms page link to menu and add a Custom page link to menu
 
 ## Who is developing this module ? 
 
+Built by Amit Bera, [Magento StackExchange Moderator](https://magento.stackexchange.com/users/4564/amit-bera?tab=profile) & Magento Certified Developer & Consultant.
+# Contact at
 
-This module is built by Amit Bera, [Magento StackExchange Moderator](https://magento.stackexchange.com/users/4564/amit-bera?tab=profile) & Magento Certified Developer & Consultant.
+- @webisie https://www.amitbera.com/contact/
+- @E-mail dev.amitbera@gmail.com
 
-@Contact from https://www.amitbera.com/contact/
-
-Or  Mail Me at dev.amitbera@gmail.com
-
+# Version
+ Current Version : **1.3.0**
 ## Feature of this extension
 
 
@@ -22,17 +23,19 @@ Or  Mail Me at dev.amitbera@gmail.com
 
 # Frontend View
 
-![Menu](docs/static/frontend.png)
+![Menu](docs/static/version-1-3-0-frontend.png)
 
-# Admin Setting :Manage Pages/Custom links from admin and also Sort Order
+# Admin Setting : Add Cms Pages & static links from admin
 
- - **Ability to add cms pages and it's sort Order from Admin System Configuration.**
+ - **Ability manahe sort Order from Admin System Configuration.**
 
-![Admin Setting](docs/static/CMS-Page.png)
+![Admin Setting](docs/static/version-1-3-0-admin-setting.png)
 
- - **Add Your Custom /Static links from Admin Setting area.**
- 
- ![Admin Setting](docs/static/Custom_links.png)
+
+# Video Demo 
+
+**Comming Soon**
+
  
 
 
