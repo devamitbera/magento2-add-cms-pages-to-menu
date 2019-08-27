@@ -2,7 +2,7 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
     <system>
         <section id="cmslinktomenu" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="999" translate="label">
-            <label>CMS Page to menu</label>
+            <label>CMS Page and Custom/Static Links to menu</label>
             <tab>general</tab>
             <resource>DevBera_CmsLinkToMenu::config_devbera_cmslinktomenu</resource>
             <group id="cms_custom_links" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="30" translate="label">
