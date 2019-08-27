@@ -5,13 +5,14 @@ Magento2 add a cms page link to menu and add a Custom page link to menu
 
 ## Who is developing this module ? 
 
+Built by Amit Bera, [Magento StackExchange Moderator](https://magento.stackexchange.com/users/4564/amit-bera?tab=profile) & Magento Certified Developer & Consultant.
+# Contact at
 
-This module is built by Amit Bera, [Magento StackExchange Moderator](https://magento.stackexchange.com/users/4564/amit-bera?tab=profile) & Magento Certified Developer & Consultant.
+- @webisie https://www.amitbera.com/contact/
+- @E-mail dev.amitbera@gmail.com
 
-@Contact from https://www.amitbera.com/contact/
-
-Or  Mail Me at dev.amitbera@gmail.com
-
+# Version
+ Current Version : **1.3.0**
 ## Feature of this extension
 
 
