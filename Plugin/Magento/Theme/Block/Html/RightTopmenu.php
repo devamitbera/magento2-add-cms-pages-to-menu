@@ -22,8 +22,7 @@ class RightTopmenu
      * @var \DevBera\CmsLinkToMenu\Api\MenuLinkManagementInterface
      */
     private $menuLinkManagement;
-    
-
+ 
     /**
      * @var \Psr\Log\LoggerInterface
      */
@@ -36,7 +35,7 @@ class RightTopmenu
     
     public function __construct(
         \Magento\Framework\App\Config\ScopeConfigInterface  $scopeConfig,
-        \DevBera\CmsLinkToMenu\Api\MenuLinkManagementInterface $menuLinkManagement, 
+        \DevBera\CmsLinkToMenu\Api\MenuLinkManagementInterface $menuLinkManagement,
         \Psr\Log\LoggerInterface $logger
     ) {
         
@@ -53,7 +52,7 @@ class RightTopmenu
     ) {
         
         if ($this->isEnabled()) {
-            $this->menuLinkManagement->addLinks($subject, 'right');  
+            $this->menuLinkManagement->addLinks($subject, 'right');
             return [$limit, $childrenWrapClass, $outermostClass];
         }
     }

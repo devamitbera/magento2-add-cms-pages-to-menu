@@ -12,8 +12,7 @@
 
 namespace DevBera\CmsLinkToMenu\Api;
 
-
-interface MenuLinkManagementInterface 
+interface MenuLinkManagementInterface
 {
     /**
      * @param \Magento\Theme\Block\Html\Topmenu $subject

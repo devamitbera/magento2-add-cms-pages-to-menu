@@ -46,7 +46,7 @@ class CmsPageCustomLinker extends AbstractFieldArray
         $this->addColumn(
             'page_id',
             ['label' => __('Cms Pages'), 'renderer' => $this->getCmsPagesRenderer()]
-        );        
+        );
         $this->addColumn('link_text', ['label' => __('Text')]);
         $this->addColumn('link_url', ['label' => __('Url'),'class' => $this->getLinkUrlExtraHtmlClass()]);
         $this->addColumn('position', ['label' => __('Sort Order')]);
@@ -65,19 +65,19 @@ class CmsPageCustomLinker extends AbstractFieldArray
             $this->cmsPagesRenderer->setClass('customer_group_select '.$this->getPageIdExtraHtmlClass());
         }
         return $this->cmsPagesRenderer ;
-    } 
+    }
     
     private function getLinkTypesRenderer()
     {
         if (!$this->linkTypesRenderer) {
             $this->linkTypesRenderer = $this->getLayout()->createBlock(
-            \DevBera\CmsLinkToMenu\Block\Adminhtml\Form\Field\LinkTypes::class,
+                \DevBera\CmsLinkToMenu\Block\Adminhtml\Form\Field\LinkTypes::class,
                 '',
                 ['data' => ['is_render_to_js_template' => true]]
             );
             $this->linkTypesRenderer->setClass('customer_group_select '.$this->getLinkTypeExtraHtmlClass());
         }
-        return $this->linkTypesRenderer;         
+        return $this->linkTypesRenderer;
     }
     
     /**
@@ -98,7 +98,7 @@ class CmsPageCustomLinker extends AbstractFieldArray
         $row->setData(
             'option_extra_attrs',
             $optionExtraAttr
-        );          
+        );
     }
     
     public function getTemplate()
@@ -123,10 +123,10 @@ class CmsPageCustomLinker extends AbstractFieldArray
     public function getPageIdExtraHtmlClass()
     {
         return $this->getFieldExtraClassName('page_id');
-    } 
+    }
     
     public function getLinkUrlExtraHtmlClass()
     {
         return $this->getFieldExtraClassName('link_url');
-    }  
+    }
 }

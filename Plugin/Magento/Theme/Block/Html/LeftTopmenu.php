@@ -23,7 +23,6 @@ class LeftTopmenu
      */
     private $menuLinkManagement;
     
-
     /**
      * @var \Psr\Log\LoggerInterface
      */
@@ -36,7 +35,7 @@ class LeftTopmenu
     
     public function __construct(
         \Magento\Framework\App\Config\ScopeConfigInterface  $scopeConfig,
-        \DevBera\CmsLinkToMenu\Api\MenuLinkManagementInterface $menuLinkManagement, 
+        \DevBera\CmsLinkToMenu\Api\MenuLinkManagementInterface $menuLinkManagement,
         \Psr\Log\LoggerInterface $logger
     ) {
         
@@ -53,7 +52,7 @@ class LeftTopmenu
     ) {
         
         if ($this->isEnabled()) {
-            $this->menuLinkManagement->addLinks($subject, 'left');  
+            $this->menuLinkManagement->addLinks($subject, 'left');
             return [$limit, $childrenWrapClass, $outermostClass];
         }
     }
@@ -65,5 +64,4 @@ class LeftTopmenu
             ScopeInterface::SCOPE_STORE
         );
     }
-
 }
