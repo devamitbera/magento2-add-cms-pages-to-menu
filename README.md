@@ -23,17 +23,19 @@ Built by Amit Bera, [Magento StackExchange Moderator](https://magento.stackexcha
 
 # Frontend View
 
-![Menu](docs/static/frontend.png)
+![Menu](docs/static/version-1-3-0-frontend.png)
 
-# Admin Setting :Manage Pages/Custom links from admin and also Sort Order
+# Admin Setting : Add Cms Pages & static links from admin
 
- - **Ability to add cms pages and it's sort Order from Admin System Configuration.**
+ - **Ability manahe sort Order from Admin System Configuration.**
 
-![Admin Setting](docs/static/CMS-Page.png)
+![Admin Setting](docs/static/version-1-3-0-admin-setting.png)
 
- - **Add Your Custom /Static links from Admin Setting area.**
- 
- ![Admin Setting](docs/static/Custom_links.png)
+
+# Video Demo 
+
+**Comming Soon**
+
  
 
 
