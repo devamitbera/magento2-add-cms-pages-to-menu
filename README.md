@@ -12,10 +12,13 @@ Built by Amit Bera, [Magento StackExchange Moderator](https://magento.stackexcha
 - @E-mail dev.amitbera@gmail.com
 - @Skype dev.amitbera
 
+[![Latest Stable Version](https://poser.pugx.org/devbera/module-cmslinktomenu/v/stable)](https://packagist.org/packages/devbera/module-cmslinktomenu)
+[![Total Downloads](https://poser.pugx.org/devbera/module-cmslinktomenu/downloads)](https://packagist.org/packages/devbera/module-cmslinktomenu)
+
 # Version
 
  Current Version : **1.3.0**
-## Feature of this extension
+## 3. Highlight features:
 
 
 
@@ -38,7 +41,11 @@ Built by Amit Bera, [Magento StackExchange Moderator](https://magento.stackexcha
 
 **Comming Soon**
 
+## 1. Documentation
+
+Comming SOon
  
+## 2. How to install SMTP Extension
 
 
 ## Installation Process using Zip
