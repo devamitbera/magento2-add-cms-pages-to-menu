@@ -13,6 +13,7 @@ Built by Amit Bera, [Magento StackExchange Moderator](https://magento.stackexcha
 - @Skype dev.amitbera
 
 # Version
+
  Current Version : **1.3.0**
 ## Feature of this extension
 
