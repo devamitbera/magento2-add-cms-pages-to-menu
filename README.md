@@ -21,7 +21,7 @@ Built by Amit Bera, [Magento StackExchange Moderator](https://magento.stackexcha
 
 **Comming Soon**
  
-## 2. How to install SMTP Extension
+## 2. How to install Extension
 
 
 ## Installation Process using Zip
