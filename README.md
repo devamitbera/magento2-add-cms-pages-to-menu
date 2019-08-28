@@ -12,33 +12,16 @@ Built by Amit Bera, [Magento StackExchange Moderator](https://magento.stackexcha
 - @E-mail dev.amitbera@gmail.com
 - @Skype dev.amitbera
 
-# Version
+[![Latest Stable Version](https://poser.pugx.org/devbera/module-cmslinktomenu/v/stable)](https://packagist.org/packages/devbera/module-cmslinktomenu)
+[![Total Downloads](https://poser.pugx.org/devbera/module-cmslinktomenu/downloads)](https://packagist.org/packages/devbera/module-cmslinktomenu)
 
- Current Version : **1.3.0**
-## Feature of this extension
+# Version: 1.3.0
 
-
-
-### 1. Ability to add cms page to Magento default menu at left and right end.
-
-### 2. Ability to add Custom links to Magento default menu at left and right end.
-
-# Frontend View
-
-![Menu](docs/static/version-1-3-0-frontend.png)
-
-# Admin Setting : Add Cms Pages & static links from admin
-
- - **Ability manahe sort Order from Admin System Configuration.**
-
-![Admin Setting](docs/static/version-1-3-0-admin-setting.png)
-
-
-# Video Demo 
+ ## 1. Documentation
 
 **Comming Soon**
-
  
+## 2. How to install SMTP Extension
 
 
 ## Installation Process using Zip
@@ -75,6 +58,32 @@ Built by Amit Bera, [Magento StackExchange Moderator](https://magento.stackexcha
 
 #d)  Do the [static content deploy](https://devdocs.magento.com/guides/v2.3/config-guide/cli/config-cli-subcommands-static-view.html) `bin/magento setup:static-content:deploy`
  
+## 3. Highlight features:
+
+
+
+### 1. Ability to add cms page to Magento default menu at left and right end.
+
+### 2. Ability to add Custom links to Magento default menu at left and right end.
+
+# Frontend View
+
+![Menu](docs/static/version-1-3-0-frontend.png)
+
+# Admin Setting : Add Cms Pages & static links from admin
+
+ - **Ability manahe sort Order from Admin System Configuration.**
+
+![Admin Setting](docs/static/version-1-3-0-admin-setting.png)
+
+
+# Video Demo 
+
+**Comming Soon**
+
+## 4. User Guide
+
+**Comming Soon**
 
 ## Standards & Code Quality
 
