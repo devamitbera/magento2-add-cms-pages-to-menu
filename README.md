@@ -21,7 +21,7 @@ Built by Amit Bera, [Magento StackExchange Moderator](https://magento.stackexcha
 
 **Comming Soon**
  
-## 2. How to install SMTP Extension
+## 2. How to install Extension
 
 
 ## Installation Process using Zip
@@ -76,8 +76,10 @@ Built by Amit Bera, [Magento StackExchange Moderator](https://magento.stackexcha
 
 ![Admin Setting](docs/static/version-1-3-0-admin-setting.png)
 
-
+## 4. Configure. 
 # Video Demo 
+ - Admin Setting Demo https://www.youtube.com/watch?v=jIWpNxtaPUw
+ - Frontend View Demo https://www.youtube.com/watch?v=sW7EJG2ld8k
 
 **Comming Soon**
 
