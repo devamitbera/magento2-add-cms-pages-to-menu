@@ -15,11 +15,12 @@ Built by Amit Bera, [Magento StackExchange Moderator](https://magento.stackexcha
 [![Latest Stable Version](https://poser.pugx.org/devbera/module-cmslinktomenu/v/stable)](https://packagist.org/packages/devbera/module-cmslinktomenu)
 [![Total Downloads](https://poser.pugx.org/devbera/module-cmslinktomenu/downloads)](https://packagist.org/packages/devbera/module-cmslinktomenu)
 
-# Version: 1.3.0
+# Version: 1.4.0
+- Fixed Width issue with System fields
 
  ## 1. Documentation
 
-**Comming Soon**
+**Coming Soon**
  
 ## 2. How to install Extension
 
