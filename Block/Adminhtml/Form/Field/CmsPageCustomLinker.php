@@ -15,13 +15,12 @@ use Magento\Config\Block\System\Config\Form\Field\FieldArray\AbstractFieldArray;
 
 class CmsPageCustomLinker extends AbstractFieldArray
 {
-    
     const FIELDS_EXTRA_CLASS_PREFIX = 'devbera-cpcl-';
-    
+
     const FIELD_TEMPLATE = 'DevBera_CmsLinkToMenu::system/config/form/field/array.phtml';
-    
+
     private $linkTypesRenderer;
-    
+
     private $cmsPagesRenderer;
     /**
      * @var \DevBera\CmsLinkToMenu\Model\Config\Source\Pages
@@ -36,8 +35,8 @@ class CmsPageCustomLinker extends AbstractFieldArray
         parent::__construct($context, $data);
         $this->cmsPages = $cmsPages;
     }
-    
-    protected function _prepareToRender(): void
+
+    protected function _prepareToRender()
     {
         $this->addColumn(
             'link_type',
@@ -47,13 +46,13 @@ class CmsPageCustomLinker extends AbstractFieldArray
             'page_id',
             ['label' => __('Cms Pages'), 'renderer' => $this->getCmsPagesRenderer()]
         );
-        $this->addColumn('link_text', ['label' => __('Text')]);
+        $this->addColumn('link_text', ['label' => __('Text'),'class' =>$this->getFieldExtraClassName('link_text')]);
         $this->addColumn('link_url', ['label' => __('Url'),'class' => $this->getLinkUrlExtraHtmlClass()]);
         $this->addColumn('position', ['label' => __('Sort Order')]);
         $this->_addAfter = false;
         $this->_addButtonLabel = __('Add Cms Page / Custom  link');
     }
-    
+
     private function getCmsPagesRenderer()
     {
         if (!$this->cmsPagesRenderer) {
@@ -62,11 +61,11 @@ class CmsPageCustomLinker extends AbstractFieldArray
                 '',
                 ['data' => ['is_render_to_js_template' => true]]
             );
-            $this->cmsPagesRenderer->setClass('customer_group_select '.$this->getPageIdExtraHtmlClass());
+            $this->cmsPagesRenderer->setClass('customer_group_select ' . $this->getPageIdExtraHtmlClass());
         }
-        return $this->cmsPagesRenderer ;
+        return $this->cmsPagesRenderer;
     }
-    
+
     private function getLinkTypesRenderer()
     {
         if (!$this->linkTypesRenderer) {
@@ -75,11 +74,11 @@ class CmsPageCustomLinker extends AbstractFieldArray
                 '',
                 ['data' => ['is_render_to_js_template' => true]]
             );
-            $this->linkTypesRenderer->setClass('customer_group_select '.$this->getLinkTypeExtraHtmlClass());
+            $this->linkTypesRenderer->setClass('customer_group_select ' . $this->getLinkTypeExtraHtmlClass());
         }
         return $this->linkTypesRenderer;
     }
-    
+
     /**
      * Prepare existing row data object
      *
@@ -94,28 +93,28 @@ class CmsPageCustomLinker extends AbstractFieldArray
             'selected="selected"';
         $optionExtraAttr['option_' . $this->getCmsPagesRenderer()->calcOptionHash($row->getData('page_id'))] =
             'selected="selected"';
-        
+
         $row->setData(
             'option_extra_attrs',
             $optionExtraAttr
         );
     }
-    
+
     public function getTemplate()
     {
         return self::FIELD_TEMPLATE;
     }
-    
+
     public function getInputFieldHtmlId()
     {
         return $this->getHtmlId();
     }
-    
+
     private function getFieldExtraClassName($fieldName)
     {
-        return self::FIELDS_EXTRA_CLASS_PREFIX.$fieldName;
+        return self::FIELDS_EXTRA_CLASS_PREFIX . $fieldName;
     }
-    
+
     public function getLinkTypeExtraHtmlClass()
     {
         return $this->getFieldExtraClassName('link_type');
@@ -124,7 +123,7 @@ class CmsPageCustomLinker extends AbstractFieldArray
     {
         return $this->getFieldExtraClassName('page_id');
     }
-    
+
     public function getLinkUrlExtraHtmlClass()
     {
         return $this->getFieldExtraClassName('link_url');

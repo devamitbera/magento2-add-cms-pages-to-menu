@@ -5,6 +5,9 @@
             <label>CMS Page and Custom/Static Links to menu</label>
             <tab>general</tab>
             <resource>DevBera_CmsLinkToMenu::config_devbera_cmslinktomenu</resource>
+            <group id="support" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                <frontend_model>DevBera\CmsLinkToMenu\Block\Adminhtml\System\Config\Form\Fieldset\Support</frontend_model>
+            </group>
             <group id="cms_custom_links" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="30" translate="label">
                 <label>Cms / Custom /Static Links To Menu</label>
                 <field id="enable" translate="label" type="select" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="10" canRestore="1" >
@@ -13,6 +16,7 @@
                 </field>                
                 <field id="left" translate="label" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Custom/Static Links For Left Left Hand</label>
+                    <frontend_class>cms-page-links-list</frontend_class>
                     <frontend_model>DevBera\CmsLinkToMenu\Block\Adminhtml\Form\Field\CmsPageCustomLinker</frontend_model>
                     <backend_model>DevBera\CmsLinkToMenu\Model\System\Config\Backend\CmsPageCustomLinker</backend_model>
                 </field>  
