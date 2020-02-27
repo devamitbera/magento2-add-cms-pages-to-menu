@@ -236,6 +236,8 @@ class MenuLinkManagement implements MenuLinkManagementInterface
 
     private function getLinkUrl($data)
     {
+        if (preg_match('/^(tel|ftps?|https?|mailto):\/\//i', $data['link_url']))
+             return $data['link_url'];
         return $this->urlBuilder->getUrl(null, ['_direct' => $data['link_url']]);
     }
     /**
