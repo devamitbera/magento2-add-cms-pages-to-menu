@@ -16,16 +16,17 @@ class LinkTypes implements \Magento\Framework\Option\ArrayInterface
 {
 
     private $options;
-    
+
     public function toOptionArray(): array
     {
         if (!$this->options) {
             $this->options[] = ['value' => 1,'label'=> __('Cms Page')];
             $this->options[] = ['value' => 2,'label'=> __('Custom Link /Static Link')];
+            $this->options[] = ['value' => 3,'label'=> __('3rd party Link')];
         }
         return $this->options;
     }
-    
+
     public function getOptions()
     {
         $result = [];

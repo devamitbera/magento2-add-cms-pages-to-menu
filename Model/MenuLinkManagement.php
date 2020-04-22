@@ -147,6 +147,11 @@ class MenuLinkManagement implements MenuLinkManagementInterface
                     $this->addStaticLinkToMenu($subject, $menuItem)
                 );
             }
+            if ($menuItem['link_type'] === 3) {
+                $subject->getMenu()->addChild(
+                    $this->addExternalLink($subject, $menuItem)
+                );
+            }
         }
     }
 
@@ -188,6 +193,24 @@ class MenuLinkManagement implements MenuLinkManagementInterface
         return $node;
     }
 
+    private function addExternalLink($subject, $menuItem)
+    {
+        $node = $this->nodeFactory->create(
+            [
+                'data' => [
+                    'name' => $menuItem['link_text'],
+                    'id' => 'external-links-' . $menuItem['position'],
+                    'url' => $menuItem['link_url'],
+                    'target' => '_blank',
+                    'has_active' => false,
+                    'is_active' => false
+                ],
+                'idField' => 'id',
+                'tree' => $subject->getMenu()->getTree()
+            ]
+        );
+        return $node;
+    }
     private function getFindCmsPageList($links)
     {
         $cmsPagesIdentifier = [];

@@ -51,7 +51,7 @@ class Processor
 
     public function convertFieldToArrayType($value)
     {
-        
+
         $value = $this->unSerializeField($value);
         $value = $this->loadAbleValue($value);
         return $value;
@@ -78,10 +78,10 @@ class Processor
 
     private function serializeField($value)
     {
-        
+
         $result = [];
         unset($value['__empty']);
-  
+
         foreach ($value as $eachRow) {
 
             if (!is_array($eachRow) || !array_key_exists('link_type', $eachRow)
@@ -97,6 +97,8 @@ class Processor
             if (($linkType == 1 && !array_key_exists('page_id', $eachRow))
                     || ($linkType == 2 && !array_key_exists('link_url', $eachRow))
                     || ($linkType == 2 && array_key_exists('link_url', $eachRow) && empty($eachRow['link_url']))
+                    || ($linkType == 3 && !array_key_exists('link_url', $eachRow))
+                    || ($linkType == 3 && array_key_exists('link_url', $eachRow) && empty($eachRow['link_url']))
                     ) {
                 continue;
             }
@@ -108,7 +110,7 @@ class Processor
                 'link_type' => $linkType,
                 'link_text' => $eachRow['link_text'],
                 'page_id' => ($linkType == 1) ? $eachRow['page_id'] : null,
-                'link_url' => ($linkType == 2) ? $eachRow['link_url'] : null,
+                'link_url' => ($linkType == 2 || $linkType == 3) ? $eachRow['link_url'] : null,
                 'position' => $position
             ];
         }
@@ -125,19 +127,19 @@ class Processor
 
     private function loadAbleValue($value)
     {
-        
+
         $result = [];
         if ($this->validateFieldValue($value)) {
             foreach ($value as $eachRow) {
-                
+
                 $linkType = (int) $eachRow['link_type'];
-                
+
                 $uniqueHashId = $this->mathRandom->getUniqueHash('_');
                 $result[$uniqueHashId] = [
                     'link_type' => $eachRow['link_type'],
                     'link_text' => $eachRow['link_text'],
                     'page_id' => ($linkType == 1) ? $eachRow['page_id'] : null,
-                    'link_url' => ($linkType == 2) ? $eachRow['link_url'] : null,
+                    'link_url' => ($linkType == 2 || $linkType == 3) ? $eachRow['link_url'] : null,
                     'position' => $eachRow['position']
                 ];
             }
@@ -145,28 +147,28 @@ class Processor
 
         return $result;
     }
-    
+
     public function getFieldValueInArrayType($value)
     {
-        
+
         $value = $this->unSerializeField($value);
         $value = $this->loadSystemValue($value);
         return $value;
     }
     private function loadSystemValue($value)
     {
-        
+
         $result = [];
         if ($this->validateFieldValue($value)) {
             foreach ($value as $eachRow) {
-                
+
                 $linkType = (int) $eachRow['link_type'];
-       
+
                 $result[] = [
                     'link_type' => $eachRow['link_type'],
                     'link_text' => $eachRow['link_text'],
                     'page_id' => ($linkType == 1) ? $eachRow['page_id'] : null,
-                    'link_url' => ($linkType == 2) ? $eachRow['link_url'] : null,
+                    'link_url' => ($linkType == 2 || $linkType == 3) ? $eachRow['link_url'] : null,
                     'position' => $eachRow['position']
                 ];
             }
