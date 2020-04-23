@@ -1,4 +1,4 @@
-Magento2 add a cms page link to menu and add a Custom page link to menu
+Magento2 add a cms page link to menu and add a Custom page link  and  external links to menu
 ========================
 
 
