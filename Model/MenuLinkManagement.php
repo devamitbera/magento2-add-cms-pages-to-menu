@@ -1,13 +1,12 @@
 <?php
-
 /**
- * A Magento 2 module named DevBera/CmsLinkToMenu
- * Copyright (C) 2019 Copyright 2019 © amitbera.com. All Rights Reserved
+ * DevBera
  *
- * This file included in DevBera/CmsLinkToMenu is licensed under OSL 3.0
- *
- * http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
- * Please see LICENSE.txt for the full text of the OSL 3.0 license
+ * @category   DevBera
+ * @package    DevBera_CmsLinkToMenu
+ * @author  Amit Bera (dev.amitbera@gmail.com)
+ * @copyright  Copyright (c) 2020 Amit Bera (https://www.amitbera.com/)
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
 namespace DevBera\CmsLinkToMenu\Model;
@@ -23,6 +22,7 @@ use Magento\Framework\Data\Tree\NodeFactory;
 use Magento\Framework\UrlInterface;
 use Magento\Store\Model\ScopeInterface;
 use Magento\Store\Model\StoreManagerInterface;
+use DevBera\CmsLinkToMenu\Model\LinkTypes;
 
 class MenuLinkManagement implements MenuLinkManagementInterface
 {
@@ -99,11 +99,7 @@ class MenuLinkManagement implements MenuLinkManagementInterface
 
     public function addLinks($subject, $position = 'left')
     {
-        $fieldValue =  $this->scopeConfig->getValue(
-            self::XML_PATH_PRE_CMS_CUSTOM_LINKS . '/' . $position,
-            ScopeInterface::SCOPE_STORE
-        );
-
+        $fieldValue =  $this->getMenuConfigValue($position);
         $menuItems = $this->getLinksWithSortOrder($fieldValue);
 
         if (!empty($menuItems) && is_array($menuItems)) {
@@ -281,5 +277,66 @@ class MenuLinkManagement implements MenuLinkManagementInterface
             return $this->urlBuilder->getUrl();
         }
         return $this->urlBuilder->getUrl(null, ['_direct' => $page->getIdentifier()]);
+    }
+
+    private function getMenuConfigValue($position = 'left')
+    {
+        return $this->scopeConfig->getValue(
+            self::XML_PATH_PRE_CMS_CUSTOM_LINKS . '/' . $position,
+            ScopeInterface::SCOPE_STORE
+        );
+    }
+
+    /**
+     * @return array
+     */
+    public function getTargetBlanksLinks()
+    {
+        $leftMenuItems = [];
+        $rightMenuItems = [];
+
+        $leftMenuItems = $this->getLinksWithSortOrder(
+            $this->getMenuConfigValue(LinkTypes::TYPE_LEFT)
+        );
+        $rightMenuItems = $this->getLinksWithSortOrder(
+            $this->getMenuConfigValue(LinkTypes::TYPE_RIGHT)
+        );
+        $leftMenuItems = (!empty($leftMenuItems) && is_array($leftMenuItems))?
+            $leftMenuItems:[];
+
+        $rightMenuItems = (!empty($rightMenuItems) && is_array($rightMenuItems))?
+            $rightMenuItems:[];
+        $result = [];
+        $result = $this->getOnlyLinks(array_merge($leftMenuItems, $rightMenuItems));
+
+        return $result;
+    }
+
+    /**
+     * @param array $links
+     * @return array
+     *
+     */
+    private function getOnlyLinks($links = [])
+    {
+        $result = [];
+        foreach ($links as $link) {
+            if ($link['link_type'] == 3) {
+                $result[] = $link;
+            }
+        }
+        return $result;
+    }
+
+    /**
+     *  get open tab
+     * @return int
+     */
+    public function isOpenInTab()
+    {
+        return (int) $this->scopeConfig->isSetFlag(
+            self::XML_PATH_PRE_CMS_CUSTOM_LINKS . '/open_in_new_tab',
+            ScopeInterface::SCOPE_STORE
+        );
     }
 }

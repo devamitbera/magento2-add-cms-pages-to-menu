@@ -1,13 +1,26 @@
 <?xml version="1.0" ?>
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+<!--
+/**
+ * DevBera
+ *
+ * @category   DevBera
+ * @package    DevBera_CmsLinkToMenu
+ * @author  Amit Bera (dev.amitbera@gmail.com)
+ * @copyright  Copyright (c) 2020 Amit Bera (https://www.amitbera.com/)
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
     <default>
         <cmslinktomenu>
             <general>
                 <enable>0</enable>
             </general>
-            <custom_links>
-                <enable>1</enable>
-            </custom_links>                
+            <cms_custom_links>
+                <enable>0</enable>
+                <open_in_new_tab>1</open_in_new_tab>
+            </cms_custom_links>
         </cmslinktomenu>
     </default>
 </config>

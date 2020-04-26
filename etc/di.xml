@@ -1,17 +1,28 @@
 <?xml version="1.0" ?>
+<!--
+/**
+ * DevBera
+ *
+ * @category   DevBera
+ * @package    DevBera_CmsLinkToMenu
+ * @author  Amit Bera (dev.amitbera@gmail.com)
+ * @copyright  Copyright (c) 2020 Amit Bera (https://www.amitbera.com/)
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
-    <preference for="DevBera\CmsLinkToMenu\Api\MenuLinkManagementInterface" 
+    <preference for="DevBera\CmsLinkToMenu\Api\MenuLinkManagementInterface"
                 type="DevBera\CmsLinkToMenu\Model\MenuLinkManagement" />
 
     <type name="Magento\Theme\Block\Html\Topmenu">
         <!-- Sort Order = -10 use for run default Menu -->
-        <plugin disabled="false" 
-                        name="DevBera_CmsLinkToMenu_Plugin_Magento_Theme_Block_Html_LeftTopmenu" 
-                        sortOrder="-10" type="DevBera\CmsLinkToMenu\Plugin\Magento\Theme\Block\Html\LeftTopmenu"/>
-                
-        <plugin disabled="false" 
-                        name="DevBera_CmsLinkToMenu_Plugin_Magento_Theme_Block_Html_RightTopmenu" 
-                        sortOrder="10" type="DevBera\CmsLinkToMenu\Plugin\Magento\Theme\Block\Html\RightTopmenu"/>                
+        <plugin disabled="false"  sortOrder="-10"
+                name="DevBera_CmsLinkToMenu_Plugin_Magento_Theme_Block_Html_LeftTopmenu"
+                type="DevBera\CmsLinkToMenu\Plugin\Magento\Theme\Block\Html\LeftTopmenu"/>
+
+        <plugin disabled="false" sortOrder="10"
+                name="DevBera_CmsLinkToMenu_Plugin_Magento_Theme_Block_Html_RightTopmenu"
+                type="DevBera\CmsLinkToMenu\Plugin\Magento\Theme\Block\Html\RightTopmenu"/>
     </type>
-        
+
 </config>

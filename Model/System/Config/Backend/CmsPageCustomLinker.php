@@ -1,13 +1,12 @@
 <?php
-
 /**
- * A Magento 2 module named DevBera/CmsLinkToMenu
- * Copyright (C) 2019 Copyright 2019 © amitbera.com. All Rights Reserved
+ * DevBera
  *
- * This file included in DevBera/CmsLinkToMenu is licensed under OSL 3.0
- *
- * http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
- * Please see LICENSE.txt for the full text of the OSL 3.0 license
+ * @category   DevBera
+ * @package    DevBera_CmsLinkToMenu
+ * @author  Amit Bera (dev.amitbera@gmail.com)
+ * @copyright  Copyright (c) 2020 Amit Bera (https://www.amitbera.com/)
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
 namespace DevBera\CmsLinkToMenu\Model\System\Config\Backend;
@@ -21,7 +20,7 @@ class CmsPageCustomLinker extends \Magento\Framework\App\Config\Value
      * @var Processor
      */
     private $processor;
-    
+
     public function __construct(
         \Magento\Framework\Model\Context $context,
         \Magento\Framework\Registry $registry,
@@ -32,7 +31,7 @@ class CmsPageCustomLinker extends \Magento\Framework\App\Config\Value
         Processor $processor,
         array $data = []
     ) {
-        
+
         $this->processor = $processor;
         parent::__construct(
             $context,
@@ -44,10 +43,10 @@ class CmsPageCustomLinker extends \Magento\Framework\App\Config\Value
             $data
         );
     }
-   
+
     public function beforeSave()
     {
-       
+
         $value = $this->getValue();
         $value = $this->processor->buildValueForSave($value);
         $this->setValue($value);

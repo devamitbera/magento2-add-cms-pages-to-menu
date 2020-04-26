@@ -76,7 +76,7 @@ Built by Amit Bera, [Magento StackExchange Moderator](https://magento.stackexcha
 
 # Admin Setting : Add Cms Pages & static links from admin
 
- - **Ability manahe sort Order from Admin System Configuration.**
+ - **Ability manage sort Order from Admin System Configuration.**
 
 ![Admin Setting](docs/static/version-1-3-0-admin-setting.png)
 
@@ -85,11 +85,11 @@ Built by Amit Bera, [Magento StackExchange Moderator](https://magento.stackexcha
  - Admin Setting Demo https://www.youtube.com/watch?v=jIWpNxtaPUw
  - Frontend View Demo https://www.youtube.com/watch?v=sW7EJG2ld8k
 
-**Comming Soon**
+**Coming Soon**
 
 ## 4. User Guide
 
-**Comming Soon**
+**Coming Soon**
 
 ## Standards & Code Quality
 

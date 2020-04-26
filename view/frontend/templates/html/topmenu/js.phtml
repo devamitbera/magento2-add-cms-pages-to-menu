@@ -1,0 +1,16 @@
+<?php
+/**
+ * @var $block \DevBera\CmsLinkToMenu\Block\Html\Topmenu\Js
+ */
+?>
+<script type="text/x-magento-init">
+    {
+        "nav.navigation": {
+            "cmsLinkToMenuTargetBlank":{
+                "selector": ".level-top",
+                "open_in_new_tab": <?= $block->escapeJs($block->isOpenInNewTab()) ?>,
+                "links" : <?= $block->getJsonLinks() ?>
+            }
+        }
+    }
+</script>

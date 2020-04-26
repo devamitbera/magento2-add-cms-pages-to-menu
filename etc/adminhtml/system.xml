@@ -1,4 +1,15 @@
 <?xml version="1.0" ?>
+<!--
+/**
+ * DevBera
+ *
+ * @category   DevBera
+ * @package    DevBera_CmsLinkToMenu
+ * @author  Amit Bera (dev.amitbera@gmail.com)
+ * @copyright  Copyright (c) 2020 Amit Bera (https://www.amitbera.com/)
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
     <system>
         <section id="cmslinktomenu" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="999" translate="label">
@@ -13,20 +24,23 @@
                 <field id="enable" translate="label" type="select" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="10" canRestore="1" >
                     <label>Enabled</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
-                </field>                
+                </field>
                 <field id="left" translate="label" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Custom/Static Links For Left Left Hand</label>
                     <frontend_class>cms-page-links-list</frontend_class>
                     <frontend_model>DevBera\CmsLinkToMenu\Block\Adminhtml\Form\Field\CmsPageCustomLinker</frontend_model>
                     <backend_model>DevBera\CmsLinkToMenu\Model\System\Config\Backend\CmsPageCustomLinker</backend_model>
-                </field>  
+                </field>
                  <field id="right" translate="label" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Custom/Static Links For Right Hand Section</label>
                     <frontend_model>DevBera\CmsLinkToMenu\Block\Adminhtml\Form\Field\CmsPageCustomLinker</frontend_model>
                     <backend_model>DevBera\CmsLinkToMenu\Model\System\Config\Backend\CmsPageCustomLinker</backend_model>
-                </field>                
-            </group> 
-                                           
+                </field>
+                <field id="open_in_new_tab" translate="label" type="select" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="40" canRestore="1" >
+                    <label>Open External Link in new tab</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
         </section>
     </system>
 </config>
