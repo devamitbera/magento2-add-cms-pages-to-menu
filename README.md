@@ -38,7 +38,7 @@ Built by Amit Bera, [Magento StackExchange Moderator](https://magento.stackexcha
 
 #b)  Run setup  Command `php bin/magento setup:upgrade`.
 
-#c)  Run [setup di compile](https://devdocs.magento.com/guides/v2.3/config-guide/cli/config-cli-subcommands-compiler.html) `php bin/magento setup:di:comple`.
+#c)  Run [setup di compile](https://devdocs.magento.com/guides/v2.3/config-guide/cli/config-cli-subcommands-compiler.html) `php bin/magento setup:di:compile`.
 
 #d)  Do the [static content deploy](https://devdocs.magento.com/guides/v2.3/config-guide/cli/config-cli-subcommands-static-view.html) `bin/magento setup:static-content:deploy`
 
@@ -58,7 +58,7 @@ Built by Amit Bera, [Magento StackExchange Moderator](https://magento.stackexcha
 
 #b)  Run setup  Command `php bin/magento setup:upgrade`.
 
-#c)  Run [setup di compile](https://devdocs.magento.com/guides/v2.3/config-guide/cli/config-cli-subcommands-compiler.html) `php bin/magento setup:di:comple`.
+#c)  Run [setup di compile](https://devdocs.magento.com/guides/v2.3/config-guide/cli/config-cli-subcommands-compiler.html) `php bin/magento setup:di:compile`.
 
 #d)  Do the [static content deploy](https://devdocs.magento.com/guides/v2.3/config-guide/cli/config-cli-subcommands-static-view.html) `bin/magento setup:static-content:deploy`
  
